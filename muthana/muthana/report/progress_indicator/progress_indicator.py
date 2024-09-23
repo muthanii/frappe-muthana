@@ -5,17 +5,17 @@ import frappe
 
 
 def execute(filters=None):
-	if not filters:
-		filters = {}
+  if not filters:
+    filters = {}
 
-	# Ensure required filters are provided
-	if not filters.get("patient"):
-		frappe.throw("Patient filter is required")
-	if not filters.get("date"):
-		frappe.throw("Date filter is required")
+  # Ensure required filters are provided
+  if not filters.get("patient"):
+    frappe.throw("Patient filter is required")
+  if not filters.get("date"):
+    frappe.throw("Date filter is required")
 
-	# SQL query to fetch data from `tabLab Test`
-	data = frappe.db.sql("""
+  # SQL query to fetch data from `tabLab Test`
+  data = frappe.db.sql("""
 	        SELECT
 	            patient,
 	            date,
@@ -38,46 +38,46 @@ def execute(filters=None):
 	            patient, date
 	    """, filters, as_dict=True)
 
-	# Define columns for the report
-	columns = [
-		{
-			"label": "Patient",
-			"fieldname": "patient",
-			"fieldtype": "Link",
-			"options": "Patient",
-			"width": 150
-		},
-		{
-			"label": "Date",
-			"fieldname": "date",
-			"fieldtype": "Date",
-			"width": 120
-		},
-		{
-			"label": "Completed Tests",
-			"fieldname": "Submitted",
-			"fieldtype": "Int",
-			"width": 130
-		},
-		{
-			"label": "Ongoing Tests",
-			"fieldname": "Draft",
-			"fieldtype": "Int",
-			"width": 120
-		},
-		{
-			"label": "Progress",
-			"fieldname": "Progress",
-			"fieldtype": "Data",
-			"width": 100
-		},
-		{
-			"label": "Percentage",
-			"fieldname": "Percentage",
-			"fieldtype": "Percent",
-			"width": 100
-		}
-	]
+  # Define columns for the report
+  columns = [
+    {
+      "label": "Patient",
+      "fieldname": "patient",
+      "fieldtype": "Link",
+      "options": "Patient",
+      "width": 150
+    },
+    {
+      "label": "Date",
+      "fieldname": "date",
+      "fieldtype": "Date",
+      "width": 120
+    },
+    {
+      "label": "Completed Tests",
+      "fieldname": "Submitted",
+      "fieldtype": "Int",
+      "width": 130
+    },
+    {
+      "label": "Ongoing Tests",
+      "fieldname": "Draft",
+      "fieldtype": "Int",
+      "width": 120
+    },
+    {
+      "label": "Progress",
+      "fieldname": "Progress",
+      "fieldtype": "Data",
+      "width": 100
+    },
+    {
+      "label": "Percentage",
+      "fieldname": "Percentage",
+      "fieldtype": "Percent",
+      "width": 100
+    }
+  ]
 
-	# Return columns and data for the report
-	return columns, data
+  # Return columns and data for the report
+  return columns, data
