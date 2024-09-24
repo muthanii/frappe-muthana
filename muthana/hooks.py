@@ -8,7 +8,9 @@ app_license = "mit"
 # Apps
 # ------------------
 
-# required_apps = []
+required_apps = [
+  "healthcare"
+]
 
 # Each item in the list will be shown as an app in the apps page
 # add_to_apps_screen = [
@@ -44,7 +46,8 @@ app_license = "mit"
 
 # include js in doctype views
 doctype_js = {
-    "Lab Test" : "public/js/previous_results.js"
+    "Lab Test" : "public/js/previous_results.js",
+    "Sales Invoice" : "public/js/prevent_duplication_sales_invoice.js"
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
