@@ -7,7 +7,7 @@ frappe.ui.form.on('Sales Invoice', {
 
       // Check for duplicates using the server-side method
       frappe.call({
-        method: "custom_app.api.count_duplicate_service_requests",
+        method: "muthana.api.count_duplicate_service_requests",
         args: {
             patient: patient,
             service_unit: service_unit,
