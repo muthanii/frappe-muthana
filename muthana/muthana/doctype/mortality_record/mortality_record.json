@@ -1,0 +1,105 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-10-05 12:15:46.746025",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "notifier_details_section",
+  "name_of_notifier",
+  "location_of_notifier",
+  "relation_to_deceased",
+  "section_break_nwej",
+  "reason_of_mortality",
+  "was_the_deceased_pregnant",
+  "activity_before_death",
+  "number_of_weeks_pregnant",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "name_of_notifier",
+   "fieldtype": "Data",
+   "label": "Name of Notifier"
+  },
+  {
+   "fieldname": "notifier_details_section",
+   "fieldtype": "Section Break",
+   "label": "Notifier Details"
+  },
+  {
+   "fieldname": "location_of_notifier",
+   "fieldtype": "Data",
+   "label": "Location of Notifier"
+  },
+  {
+   "fieldname": "relation_to_deceased",
+   "fieldtype": "Select",
+   "label": "Relation to Deceased",
+   "options": "Select...\nSpouse\nParent\nChild\nSibling\nGrandparent\nGrandchild\nAunt/Uncle\nNiece/Nephew\nCousin\nFriend\nNeighbor\nColleague\nLegal Guardian\nHealthcare Provider\nOther"
+  },
+  {
+   "fieldname": "section_break_nwej",
+   "fieldtype": "Section Break",
+   "label": "Mortality Details"
+  },
+  {
+   "fieldname": "reason_of_mortality",
+   "fieldtype": "Text Editor",
+   "label": "Reason of Mortality"
+  },
+  {
+   "fieldname": "was_the_deceased_pregnant",
+   "fieldtype": "Select",
+   "label": "Was the deceased pregnant?",
+   "options": "Select...\nYes\nNo"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Mortality Record",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "number_of_weeks_pregnant",
+   "fieldtype": "Int",
+   "label": "Number of weeks pregnant"
+  },
+  {
+   "fieldname": "activity_before_death",
+   "fieldtype": "Select",
+   "label": "Activity before death",
+   "options": "Select...\nPregnancy\nMiscarriage\nChildbirth\nPostpartum (for childbirth or miscarriage)"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-10-05 15:37:15.970360",
+ "modified_by": "Administrator",
+ "module": "Muthana",
+ "name": "Mortality Record",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
