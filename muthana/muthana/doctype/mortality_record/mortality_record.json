@@ -5,6 +5,9 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "deceased_details_section",
+  "deceased_patient",
+  "service_unit",
   "notifier_details_section",
   "name_of_notifier",
   "location_of_notifier",
@@ -74,12 +77,29 @@
    "fieldtype": "Select",
    "label": "Activity before death",
    "options": "Select...\nPregnancy\nMiscarriage\nChildbirth\nPostpartum (for childbirth or miscarriage)"
+  },
+  {
+   "fieldname": "service_unit",
+   "fieldtype": "Link",
+   "label": "Service Unit",
+   "options": "Healthcare Service Unit Type"
+  },
+  {
+   "fieldname": "deceased_details_section",
+   "fieldtype": "Section Break",
+   "label": "Deceased Details"
+  },
+  {
+   "fieldname": "deceased_patient",
+   "fieldtype": "Link",
+   "label": "Deceased Patient",
+   "options": "Patient"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-10-05 15:37:15.970360",
+ "modified": "2024-10-05 16:49:36.098522",
  "modified_by": "Administrator",
  "module": "Muthana",
  "name": "Mortality Record",
