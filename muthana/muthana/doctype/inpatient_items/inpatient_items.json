@@ -8,7 +8,7 @@
  "field_order": [
   "name1",
   "quantity",
-  "is_billable",
+  "is_billed",
   "warehouse"
  ],
  "fields": [
@@ -24,22 +24,23 @@
    "label": "Quantity"
   },
   {
-   "default": "0",
-   "fieldname": "is_billable",
-   "fieldtype": "Check",
-   "label": "Is Billable?"
-  },
-  {
    "fieldname": "warehouse",
    "fieldtype": "Link",
    "label": "Warehouse",
    "options": "Warehouse"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_billed",
+   "fieldtype": "Check",
+   "label": "Is Billed?",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-10-07 19:15:26.418394",
+ "modified": "2024-10-07 20:31:16.391395",
  "modified_by": "Administrator",
  "module": "Muthana",
  "name": "Inpatient Items",
