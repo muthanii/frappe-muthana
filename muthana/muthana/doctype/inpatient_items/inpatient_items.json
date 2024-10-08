@@ -6,18 +6,12 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "name1",
+  "item_name",
   "quantity",
   "is_billed",
   "warehouse"
  ],
  "fields": [
-  {
-   "fieldname": "name1",
-   "fieldtype": "Link",
-   "label": "Name",
-   "options": "Item"
-  },
   {
    "fieldname": "quantity",
    "fieldtype": "Int",
@@ -35,12 +29,18 @@
    "fieldtype": "Check",
    "label": "Is Billed?",
    "read_only": 1
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Link",
+   "label": "Name",
+   "options": "Item"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-10-07 20:31:16.391395",
+ "modified": "2024-10-08 11:54:06.516906",
  "modified_by": "Administrator",
  "module": "Muthana",
  "name": "Inpatient Items",
