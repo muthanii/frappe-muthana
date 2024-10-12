@@ -47,9 +47,10 @@ required_apps = [
 # include js in doctype views
 doctype_js = {
     "Lab Test" : "public/js/previous_results.js",
-    # "Sales Invoice" : "public/js/prevent_duplication_sales_invoice.js",
+    "Sales Invoice" : "public/js/prevent_duplication_sales_invoice.js",
     "Inpatient Record": "public/js/add_mortality_record_button.js",
-    "Sales Invoice": "public/js/add_inpatient_items_to_sales_invoice.js"
+    # "Sales Invoice": "public/js/add_inpatient_items_to_sales_invoice.js",
+    "Sales Invoice": "public/js/prevent_duplicate_entries_sales_invoice.js"
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
