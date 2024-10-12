@@ -44,5 +44,5 @@ def check_duplicate_sales_invoice_entries(patient):
                                      "docstatus": 0
                                  })
     if duplicates > 1:
-        return "Duplicates found!"
+        return True
 
