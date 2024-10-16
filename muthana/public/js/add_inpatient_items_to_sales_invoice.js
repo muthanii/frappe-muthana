@@ -1,13 +1,46 @@
+var globalResponse = null;
+
 frappe.ui.form.on("Sales Invoice", {
   refresh(frm) {
-    // Addes the custom button "Inpatient Items" inside the "Get Healthcare Items From".
+    // This condition is very important
+    if (!frm.doc.patient) {
+      return; // Exit if patient is not selected
+    }
+
+    // Calling the server-side method
+    frappe.call({
+      method: 'muthana.muthana.api.get_patient_from_tabInpatientRecord',
+      args: {
+        patient: frm.doc.patient  // Passing the patient value here
+      },
+      callback: function(response) {
+        if (response.message) {
+          // Assign the response to the global variable
+          globalResponse = response.message;
+          // Extract the 'name' field from the first object in the response array
+          var inpatientRecordName = response.message[0].name;
+          console.log("Response Message (assigned globally):", response);
+          frm.set_value('custom_inpatient_record', inpatientRecordName); // Set the 'name' of the inpatient record
+          frm.refresh_field('custom_inpatient_record');
+
+        } else {
+          frappe.msgprint(__("No records found."));
+        }
+      },
+      error: function(error) {
+        frappe.msgprint(__("Error fetching inpatient records. Please check server logs."));
+      }
+    });
+
+    // Add the custom button "Inpatient Items" inside the "Get Healthcare Items From".
     frm.add_custom_button(__("Inpatient Record"), function() {
-     // Catches the custom Inpatient Record field.
-      var inpatient_record_name = frm.doc.custom_inpatient_record;
-      // If it's catched and available before clicking the button, do the following:
-      // 1. Go to the Inpatient Record DocType with the same name from variable above.
-      // 2. Check if the items in the Inpatient Items Child table exists.
-      // 3. If available, loop through the items and set them in the "items" field in the Sales Invoice.
+      if (!globalResponse || !globalResponse[0]) {
+        frappe.msgprint(__("Please select a valid Inpatient Record first."));
+        return;
+      }
+
+      // Catches the custom Inpatient Record field.
+      var inpatient_record_name = globalResponse[0].name;
       if (inpatient_record_name) {
         // Validation for checking the items in the Inpatient Items Child table.
         frappe.db.get_doc("Inpatient Record", inpatient_record_name).then(function(inpatient_record) {
@@ -31,9 +64,10 @@ frappe.ui.form.on("Sales Invoice", {
             });
             // Refresh the field to see the updated child table
             frm.refresh_field("items");
-          } else {
-            frappe.msgprint(__("No items found in the selected Inpatient Record."));
           }
+          //  else {
+          //   frappe.msgprint(__("No items found in the selected Inpatient Record."));
+          // }
         }).catch(function(error) {
           frappe.msgprint(__("Unable to fetch Inpatient Record. Please try again later."));
         });
